@@ -5,7 +5,9 @@ const productRoute = require("./routes/productRoutes.js");
 const userRoutes = require("./routes/userRoutes.js");
 const cors = require("cors"); 
 const app = express();
+const dotenv = require("dotenv");
 app.use(express.json());
+
 
 app.get('/', (req, res) => {
   res.send('Hello Chigemezu: Welcome to Backend');
@@ -18,7 +20,10 @@ app.use("/api/user", userRoutes);
 
 app.use(cors());
 
-app.listen(5000, () => {
+dotenv.config();
+
+
+app.listen(process.env, () => {
     console.log("server is running in port 5000")
 })
 
